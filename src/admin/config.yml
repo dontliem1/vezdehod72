@@ -7,6 +7,8 @@ backend:
   # repo: surjithctly/neat-starter
 media_folder: "src/static/img"
 public_folder: "/static/img"
+site_url: https://clever-brattain-b978d3.netlify.app
+locale: 'ru'
 
 # Please run "npx netlify-cms-proxy-server" for local backend
 local_backend: true
@@ -30,39 +32,54 @@ collections:
         multiple: true
         create: true
         options: ["Tags", "created", "from", "config.yml"]
-  - label: "Settings"
-    name: "settings"
+  - label: "Вездеход"
+    name: "vezdehod"
     editor:
       preview: false
     files:
-      - label: "Navigation"
-        name: "items"
-        file: "src/_data/navigation.yaml"
+      - label: "Содержимое страницы"
+        name: "settings"
+        file: "src/_data/vezdehod/settings.yaml"
         fields:
-          - label: Nav Items
+          - { label: "Заголовок страницы", name: title, widget: string }
+          - { label: "Заглавная картинка", name: heroSrc, widget: image, allow_multiple: false, hint: "1290х725 пикселей", required: false }
+          - { label: "Картинка для упоминаний в соцсетях", name: og, widget: image, allow_multiple: false, hint: "1280×640 пикселей", required: false }
+          - label: "Описание проекта"
+            label_singular: "абзац"
+            name: descriptions
+            widget: list
+            fields:
+              - { label: "Абзац текста", name: text, widget: text }
+          - { label: "Цитата", name: quote, widget: text, hint: "Без кавычек.", required: false }
+          - { label: "Автор цитаты", name: author, widget: string, required: false }
+          - { label: "Должность автора", name: authorJob, widget: string, required: false }
+          - { label: "Фотография автора", name: authorSrc, widget: image, allow_multiple: false, hint: "170х170 пикселей", required: false }
+          - { label: "Хештег проекта", name: hashtag, widget: string }
+      - label: "Направления историй"
+        name: "themes"
+        file: "src/_data/vezdehod/themes.yaml"
+        fields:
+          - { label: "Заголовок раздела", name: title, widget: string }
+          - label: "Список карточек"
+            label_singular: "карточка"
+            name: cards
+            widget: list
+            fields:
+              - { label: "Заголовок", name: title, widget: string }
+              - { label: "Описание", name: url, widget: string }
+              - { label: "Иконка", name: src, widget: image, allow_multiple: false, hint: "600х600 пикселей", required: false }
+      - label: "Команда проекта"
+        name: "items"
+        file: "src/_data/vezdehod/team.yaml"
+        fields:
+          - label: "Команда проекта"
+            label_singular: "человек"
             name: items
             widget: list
-            allow_add: false
-            collapsed: false
             fields:
-              - { label: Title, name: text, widget: string }
-              - { label: URL, name: url, widget: string }
-      - label: "Quick Links"
-        name: "links"
-        file: "src/_data/quicklinks.yaml"
-        fields:
-          - label: Nav Items
-            name: links
-            widget: list
-            collapsed: false
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: URL, name: url, widget: string }
-              - { label: Description, name: desc, widget: string }
-      - label: "Meta Settings"
-        name: "settings"
-        file: "src/_data/settings.yaml"
-        fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Author, name: author, widget: string }
-          - { label: URL, name: url, widget: string }
+              - { label: "Имя", name: name, widget: string }
+              - { label: "Должность", name: job, widget: string }
+              - { label: "Фотография", name: src, widget: image, allow_multiple: false, hint: "600х600 пикселей", required: false }
+              - { label: "Ссылка на ВКонтакте", name: vk, widget: string, required: false }
+              - { label: "Ссылка на Инстаграм", name: ig, widget: string, required: false }
+              - { label: "Электронная почта", name: email, widget: string, required: false }
