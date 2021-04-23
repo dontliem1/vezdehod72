@@ -50,10 +50,22 @@ collections:
             widget: list
             fields:
               - { label: "Абзац текста", name: text, widget: text }
-          - { label: "Цитата", name: quote, widget: text, hint: "Без кавычек.", required: false }
-          - { label: "Автор цитаты", name: author, widget: string, required: false }
-          - { label: "Должность автора", name: authorJob, widget: string, required: false }
-          - { label: "Фотография автора", name: authorSrc, widget: image, allow_multiple: false, hint: "170х170 пикселей", required: false }
+          - label: "Логотипы других проектов"
+            label_singular: "логотип"
+            name: logos
+            widget: list
+            fields:
+              - { label: "Логотип проекта", name: src, widget: image, allow_multiple: false }
+              - { label: "Название", name: alt, widget: string }
+          - label: "Цитаты"
+            label_singular: "цитата"
+            name: quotes
+            widget: list
+            fields:
+              - { label: "Автор цитаты", name: author, widget: string, required: false }
+              - { label: "Должность автора", name: authorJob, widget: string, required: false }
+              - { label: "Фотография автора", name: authorSrc, widget: image, allow_multiple: false, hint: "170х170 пикселей", required: false }
+              - { label: "Цитата", name: quote, widget: text, hint: "Без кавычек.", required: false }
           - { label: "Хештег проекта", name: hashtag, widget: string }
       - label: "Направления историй"
         name: "themes"

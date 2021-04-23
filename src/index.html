@@ -4,7 +4,7 @@ title: Вездеход — 2021
 path: home
 ---
 
-<h1 class="container">{{stories.settings.title}}</h1>
+<h1 class="stories-title container">{{stories.settings.title}}</h1>
 
 <div class="container">
   {% if stories.settings.description %}
@@ -14,19 +14,30 @@ path: home
       {% endfor %}
     </div>
   {% endif %}
-  {% if stories.settings.quote %}
-  <div class="stories-quote">
-    <blockquote class="stories-quote__text">{{stories.settings.quote}}</blockquote>
-    <div class="stories-quote__author">
-      {% if stories.settings.authorSrc %}
-        <img class="stories-quote__author_img" src="{{stories.settings.authorSrc}}" alt="" width="85" height="85">
-      {% endif %}
-      <div>
-        <b class="stories-quote__author_name">{{stories.settings.author}}</b>
-        <p class="stories-quote__author_job">{{stories.settings.authorJob}}</p>
-      </div>
+  {% if stories.settings.logos %}
+    <ul class="stories-logos">
+      {% for logo in stories.settings.logos %}
+      <li><img src="{{logo.src}}" alt="{{logo.alt}}"></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if stories.settings.quotes %}
+    <div class="stories-quotes">
+      {% for item in stories.settings.quotes %}
+        <div class="stories-quote">
+          <blockquote class="stories-quote__text">{{item.quote}}</blockquote>
+          <div class="stories-quote__author">
+            {% if item.authorSrc %}
+              <img class="stories-quote__author_img" src="{{item.authorSrc}}" alt="" width="85" height="85">
+            {% endif %}
+            <div>
+              <b class="stories-quote__author_name">{{item.author}}</b>
+              <p class="stories-quote__author_job">{{item.authorJob}}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
     </div>
-  </div>
   {% endif %}
 </div>
 {% include "./_includes/partials/themes.html" %}
@@ -54,7 +65,7 @@ path: home
           <img src="{{item.src}}" alt="" width="300" height="300">
         {% endif %}
         <div>
-          <h3 class="stories-team__person_name">{{item.name}}</h3>
+          <b class="stories-team__person_name">{{item.name}}</b>
           <p class="stories-team__person_job">{{item.job}}</p>
           {% if item.vk %}
             <a href="{{item.vk}}" class="stories-team__person_link stories-team__person_link--vk"><span class="visually-hidden">ВКонтакте</span></a>
