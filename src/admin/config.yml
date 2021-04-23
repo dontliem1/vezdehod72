@@ -33,20 +33,20 @@ collections:
         create: true
         options: ["Tags", "created", "from", "config.yml"]
   - label: "Вездеход"
-    name: "vezdehod"
+    name: "stories"
     editor:
       preview: false
     files:
       - label: "Содержимое страницы"
         name: "settings"
-        file: "src/_data/vezdehod/settings.yaml"
+        file: "src/_data/stories/settings.yaml"
         fields:
           - { label: "Заголовок страницы", name: title, widget: string }
           - { label: "Заглавная картинка", name: heroSrc, widget: image, allow_multiple: false, hint: "1290х725 пикселей", required: false }
           - { label: "Картинка для упоминаний в соцсетях", name: og, widget: image, allow_multiple: false, hint: "1280×640 пикселей", required: false }
           - label: "Описание проекта"
             label_singular: "абзац"
-            name: descriptions
+            name: description
             widget: list
             fields:
               - { label: "Абзац текста", name: text, widget: text }
@@ -57,7 +57,7 @@ collections:
           - { label: "Хештег проекта", name: hashtag, widget: string }
       - label: "Направления историй"
         name: "themes"
-        file: "src/_data/vezdehod/themes.yaml"
+        file: "src/_data/stories/themes.yaml"
         fields:
           - { label: "Заголовок раздела", name: title, widget: string }
           - label: "Список карточек"
@@ -66,11 +66,11 @@ collections:
             widget: list
             fields:
               - { label: "Заголовок", name: title, widget: string }
-              - { label: "Описание", name: url, widget: string }
+              - { label: "Описание", name: description, widget: string }
               - { label: "Иконка", name: src, widget: image, allow_multiple: false, hint: "600х600 пикселей", required: false }
       - label: "Команда проекта"
         name: "items"
-        file: "src/_data/vezdehod/team.yaml"
+        file: "src/_data/stories/team.yaml"
         fields:
           - label: "Команда проекта"
             label_singular: "человек"

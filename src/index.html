@@ -4,19 +4,70 @@ title: Вездеход — 2021
 path: home
 ---
 
-<div class="container mx-auto lg:h-screen flex flex-col justify-center items-center">
-  <h1>
-    Welcome to
-    <strong class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-      {{title}}
-    </strong>
-  </h1>
+<h1 class="container">{{stories.settings.title}}</h1>
 
-  <p>
-    <abbr title="netlify cms, eleventy, alpine js & tailwind css">NEAT</abbr>
-    Starter Template. Get Started by editing.
-    <code class="bg-gray-100 text-blue-800 p-1">/index.njk</code>
-  </p>
-
-  {% include "./_includes/partials/content.html" %}
+<div class="container">
+  {% if stories.settings.description %}
+    <div class="stories-description">
+      {% for item in stories.settings.description %}
+        <p>{{item.text}}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% if stories.settings.quote %}
+  <div class="stories-quote">
+    <blockquote class="stories-quote__text">{{stories.settings.quote}}</blockquote>
+    <div class="stories-quote__author">
+      {% if stories.settings.authorSrc %}
+        <img class="stories-quote__author_img" src="{{stories.settings.authorSrc}}" alt="" width="85" height="85">
+      {% endif %}
+      <div>
+        <b class="stories-quote__author_name">{{stories.settings.author}}</b>
+        <p class="stories-quote__author_job">{{stories.settings.authorJob}}</p>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 </div>
+{% include "./_includes/partials/themes.html" %}
+<div class="container stories-social">
+  <p class="section-subheading">Если у тебя есть социальные сети</p>
+  <div class="stories-social__heading">
+    <h2 class="section-heading">Выложи пост со своей историей в соцсеть</h2>
+    <p class="stories-social__heading_links">
+      <a href="" class="stories-social__heading_link stories-social__heading_link--fb" title="Поделиться в Фейсбуке"><span class="visually-hidden">Фейсбук</span></a>
+      <a href="" class="stories-social__heading_link stories-social__heading_link--ig" title="Поделиться в Инстаграме"><span class="visually-hidden">Инстаграм</span></a>
+      <a href="" class="stories-social__heading_link stories-social__heading_link--vk" title="Поделиться во ВКонтакте"><span class="visually-hidden">ВКонтакте</span></a>
+    </p>
+  </div>
+  <p class="stories-social__cta">Отметь людей, сопричастных к этой истории и используй хештег <button class="stories-social__cta_btn" type="button">{{stories.settings.hashtag}}</button></p>
+</div>
+
+
+{% if stories.team.items %}
+<div class="stories-team container">
+  <h2 class="section-heading">Команда проекта</h2>
+  <ul class="stories-team__list">
+    {% for item in stories.team.items %}
+      <li class="stories-team__person">
+        {% if item.src %}
+          <img src="{{item.src}}" alt="" width="300" height="300">
+        {% endif %}
+        <div>
+          <h3 class="stories-team__person_name">{{item.name}}</h3>
+          <p class="stories-team__person_job">{{item.job}}</p>
+          {% if item.vk %}
+            <a href="{{item.vk}}" class="stories-team__person_link stories-team__person_link--vk"><span class="visually-hidden">ВКонтакте</span></a>
+          {% endif %}
+          {% if item.ig %}
+            <a href="{{item.ig}}" class="stories-team__person_link stories-team__person_link--ig"><span class="visually-hidden">Инстаграм</span></a>
+          {% endif %}
+          {% if item.email %}
+          <a href="mailto:{{item.email}}" class="stories-team__person_link stories-team__person_link--email"><span class="visually-hidden">{{email}}</span></a>
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
