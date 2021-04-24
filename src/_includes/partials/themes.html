@@ -2,16 +2,18 @@
     <section class="stories-themes">
         <div class="container">
             <h2 class="section-heading">{{stories.themes.title}}</h2>
-            {% for item in stories.themes.cards %}
-                <div class="stories-themes__card"
-                     {% if item.src %}
-                        style="background-image: url('{{item.src}}')"
-                     {% endif %}
-                >
-                    <h3 class="stories-themes__card_title">{{item.title}}</h3>
-                    <p>{{item.description}}</p>
-                </div>
-            {% endfor %}
+            <div class="stories-themes__wrapper">
+                {% for item in stories.themes.cards %}
+                    <div class="stories-themes__card"
+                         {% if item.src %}
+                            style="background-image: url('{{item.src}}')"
+                         {% endif %}
+                    >
+                        <h3 class="stories-themes__card_title">{{item.title}}</h3>
+                        <p>{{item.description}}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
 {% endif %}

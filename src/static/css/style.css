@@ -15,6 +15,27 @@ h3 {
   padding-right: 1.5rem;
 }
 
+.link--img {
+  text-decoration: none;
+}
+.link--solid {
+  color: inherit;
+}
+.link--solid[href]:hover {
+  opacity: .5;
+}
+
+.section-heading {
+  font-size: 2em;
+  margin: 0;
+  line-height: 110%;
+}
+.section-subheading {
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: 80%;
+}
+
 /* Stories-header */
 .stories-title {
   color: #fff;
@@ -31,6 +52,15 @@ h3 {
   width: 11em;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* Stories description */
+@media (min-width: 30em) {
+  .stories-description__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5em;
+  }
 }
 
 /* Stories-quote */
@@ -70,15 +100,86 @@ h3 {
   padding-top: 2em;
   padding-bottom: 2em;
 }
+.stories-themes__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -1em;
+  margin-top: 2em;
+}
 .stories-themes__card {
   background-color: #fff;
   padding: 1.5em 1.25em 3em;
-  margin-bottom: 1.5em;
+  margin-right: 1em;
+  margin-bottom: 1em;
   box-shadow: 10px 10px 50px 3px rgba(39, 92, 141, 0.1);
+  flex-basis: 12em;
+  flex-grow: 1;
 }
 .stories-themes__card_title {
   margin: 0;
   font-weight: inherit;
 }
 
-/* Social */
+/* Stories social */
+.stories-social {
+  padding-top: 2em;
+  padding-bottom: 3em;
+}
+.stories-social__heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.stories-social__heading .section-heading {
+  flex-basis: 14em;
+}
+.stories-social__cta_btn {
+  border: 2px solid #F6D857;
+  background: none;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  padding: .25em .5em .3em;
+  margin: .25em 0;
+  cursor: pointer;
+}
+
+/* Stories team */
+.stories-team__list {
+  padding: 0 0 3em;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2em -1.5em 0 0;
+}
+.stories-team__person {
+  display: inline-flex;
+  flex-basis: 20em;
+  margin-right: 1.5em;
+  flex-grow: 1;
+}
+.stories-team__person_name {
+  font-size: 1.25em;
+}
+.stories-team__person_job {
+  margin: .5em 0;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid #d2d1d1;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer .link--img {
+  margin-right: 2em;
+  margin-bottom: 1em;
+}
