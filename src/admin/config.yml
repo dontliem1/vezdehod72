@@ -67,6 +67,8 @@ collections:
               - { label: "Фотография автора", name: authorSrc, widget: image, allow_multiple: false, hint: "170х170 пикселей", required: false }
               - { label: "Цитата", name: quote, widget: text, hint: "Без кавычек.", required: false }
           - { label: "Хештег проекта", name: hashtag, widget: string }
+          - { label: "Текст рядом с формой истории", name: formText, widget: text, required: false }
+          - { label: "Картинка рядом с формой истории", name: formBg, widget: image, allow_multiple: false, required: false }
       - label: "Направления историй"
         name: "themes"
         file: "src/_data/stories/themes.yaml"

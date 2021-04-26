@@ -35,10 +35,10 @@ path: home
   {% endfor %}
 </div>
 {% include "./_includes/partials/themes.html" %}
-<div class="container stories-social">
-  <p class="section-subheading">Если у тебя есть социальные сети</p>
+<section class="container stories-social">
+  <h2 class="section-subheading">Если у тебя есть социальные сети</h2>
   <div class="stories-social__heading">
-    <h2 class="section-heading">Выложи пост со своей историей в соцсеть</h2>
+    <p class="section-heading">Выложи пост со своей историей в соцсеть</p>
     <p class="stories-social__heading_links">
       <a href="" class="stories-social__heading_link stories-social__heading_link--fb" title="Поделиться в Фейсбуке"><span class="visually-hidden">Фейсбук</span></a>
       <a href="" class="stories-social__heading_link stories-social__heading_link--ig" title="Поделиться в Инстаграме"><span class="visually-hidden">Инстаграм</span></a>
@@ -46,8 +46,81 @@ path: home
     </p>
   </div>
   <p class="stories-social__cta">Отметь людей, сопричастных к этой истории и используй хештег <button class="stories-social__cta_btn" type="button" title="Скопировать хештег">{{stories.settings.hashtag}}</button></p>
-</div>
+</section>
 
+<section class="stories-web">
+  <div class="stories-web__wrapper">
+    <h2 class="section-subheading">Если у тебя нет социальных сетей</h2>
+    <p class="section-heading">Поделись своей историей на сайте</p>
+    <form class="stories-web__form">
+      <p class="form__row form__row-full">
+        <label class="form__label">Имя и фамилия <input class="form__input" type="text" name="name" placeholder="Иван Иванов"></label>
+      </p>
+      <p class="form__row form__row-full">
+        <label class="form__label">Электронная почта <input class="form__input" type="email" name="email" placeholder="primer@mail.ru"></label>
+      </p>
+      <p class="form__row form__row-full">
+        <label class="form__label">Ссылка на социальную сеть <input class="form__input" type="url" name="social" placeholder="https://instagram.com/primer"></label>
+      </p>
+      <p class="form__row form__row--tel">
+        <label class="form__label">Контактный телефон <input class="form__input" type="tel" name="tel" placeholder="+7 999 999-99-99" size="18"></label>
+      </p>
+      <p class="form__row">
+        <label class="form__label">Яркая фотография <input class="visually-hidden" type="file" name="photo" accept="image/*"><span class="form__btn">Выбрать</span></label>
+      </p>
+      <p class="form__row form__row-full">
+        <label class="form__label">Ваша история <textarea class="form__input" name="story" placeholder="Не забудь упомянуть людей, с которыми ты участвовал в проектах." rows="4"></textarea></label>
+      </p>
+      <input class="form__btn" type="submit" value="Поделиться историей">
+    </form>
+  </div>
+  <div class="stories-web__cta"
+       {% if stories.settings.formBg %}
+       style="background-image: url('{{stories.settings.formBg}}')"
+       {% endif %}
+  >
+    {% if stories.settings.formText %}
+      <div class="stories-web__cta_text">{{stories.settings.formText}}</div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="stories-subscribe container">
+  <div class="stories-subscribe__wrapper">
+    <h2 class="section-heading section-heading--small">Хочешь быть в курсе молодежных событий и проектов Тюменской области и включаться в них?</h2>
+    <form class="stories-subscribe__form" onsubmit="if (document.querySelector('.form__checkbox:checked') === null) {alert('Отметь опции, которые тебе интересны.'); return false;}">
+      <div class="stories-subscribe__form_inputs">
+        <p class="form__row">
+          <label class="form__label">Фамилия Имя Отчество <input class="form__input" type="text" name="name" placeholder="Иванов Иван Иванович"></label>
+        </p>
+        <p class="form__row">
+          <label class="form__label">Контактный телефон <input class="form__input" type="tel" name="tel" placeholder="+7 999 999-99-99" size="18"></label>
+        </p>
+        <p class="form__row">
+          <label class="form__label">Электронная почта <input class="form__input" type="email" name="email" placeholder="primer@mail.ru"></label>
+        </p>
+        <p class="form__row">
+          <label class="form__label">Ссылка на социальную сеть <input class="form__input" type="url" name="social" placeholder="https://instagram.com/primer"></label>
+        </p>
+      </div>
+      <div class="stories-subscribe__form_checkboxes">
+        <fieldset>
+          <legend class="form__legend">Отметь опции, которые тебе интересны:</legend>
+          <p class="form__row">
+            <label class="form__label--checkbox"><input class="visually-hidden form__checkbox" type="checkbox" name="options[]" value="expert"><span></span> <span class="form__checkbox_text"><b>Эксперт</b> принимай участие в проектах как спикер, член жюри</span></label>
+          </p>
+          <p class="form__row">
+            <label class="form__label--checkbox"><input class="visually-hidden form__checkbox" type="checkbox" name="options[]" value="mentor"><span></span> <span class="form__checkbox_text"><b>Ментор</b> включайся в качестве карьерного или проектного наставника</span></label>
+          </p>
+          <p class="form__row">
+            <label class="form__label--checkbox"><input class="visually-hidden form__checkbox" type="checkbox" name="options[]" value="sponsor"><span></span> <span class="form__checkbox_text"><b>Спонсор</b> делай финансовые вложения на развитие молодежных инициатив / лидеров</span></label>
+          </p>
+        </fieldset>
+        <input class="form__btn" type="submit" value="Отправить">
+      </div>
+    </form>
+  </div>
+</section>
 
 {% if stories.team.items %}
 <div class="stories-team container">
