@@ -275,10 +275,12 @@ h3 {
 .stories-social__heading_link {
   display: inline-block;
   padding: 1.5em;
-  margin-right: .75em;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+.stories-social__heading_link:not(:last-child) {
+  margin-right: .75em;
 }
 .stories-social__heading_link--fb {
   background-image: url('/static/img/social/fb.svg');
@@ -317,6 +319,12 @@ h3 {
 @media (min-width: 67em) {
   .stories-social__cta {
     font-size: 150%;
+  }
+  .stories-social__heading_link {
+    padding: 2.25em;
+  }
+  .stories-social__heading_link:not(:last-child) {
+    margin-right: 1em;
   }
 }
 
