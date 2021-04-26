@@ -3,7 +3,9 @@ layout: default
 title: Вездеход — 2021
 path: home
 ---
-
+{% if stories.settings.heroSrc %}
+  <img class="stories-hero" src="{{stories.settings.heroSrc}}" alt="Молодежная политика Тюменской области" width="320">
+{% endif %}
 <h1 class="stories-title container">{{stories.settings.title}}</h1>
 
 <div class="container stories-description__wrapper">
@@ -14,7 +16,7 @@ path: home
   </div>
   <ul class="stories-logos">
     {% for logo in stories.settings.logos %}
-    <li><img src="{{logo.src}}" alt="{{logo.alt}}"></li>
+    <li class="stories-logos__item"><img class="stories-logos__img" width="320" src="{{logo.src}}" alt="{{logo.alt}}"></li>
     {% endfor %}
   </ul>
   {% for item in stories.settings.quotes %}
@@ -43,7 +45,7 @@ path: home
       <a href="" class="stories-social__heading_link stories-social__heading_link--vk" title="Поделиться во ВКонтакте"><span class="visually-hidden">ВКонтакте</span></a>
     </p>
   </div>
-  <p class="stories-social__cta">Отметь людей, сопричастных к этой истории и используй хештег <button class="stories-social__cta_btn" type="button" title="Скопировать хештег">{{stories.settings.hashtag}}</button></p>
+  <p class="stories-social__cta">Отметь людей, сопричастных к этой истории и используй хештег <button class="stories-social__cta_btn" type="button" title="Скопировать хештег">{{stories.settings.hashtag}}</button></p>
 </div>
 
 
@@ -54,7 +56,7 @@ path: home
     {% for item in stories.team.items %}
       <li class="stories-team__person">
         {% if item.src %}
-          <img src="{{item.src}}" alt="" width="300" height="300">
+          <img class="stories-team__person_photo" src="{{item.src}}" alt="" width="300" height="300">
         {% endif %}
         <div>
           <b class="stories-team__person_name">{{item.name}}</b>

@@ -2,9 +2,13 @@ title: Расскажи свою историю о
 cards:
   - title: Людях
     description: Единомышленники, друзья и наставники, повлиявшие на тебя и твое развитие.
+    src: /static/img/themes/people.svg
   - title: Проектах
     description: Мероприятия, которые подарили яркие эмоции и были полезны.
+    src: /static/img/themes/projects.svg
   - title: Ценностях
     description: Что открылось для тебя во время общения и участия в проектах.
+    src: /static/img/themes/ideas.svg
   - title: Компетенциях
     description: Что удалось сформировать и развить в ходе проектов.
+    src: /static/img/themes/competentions.svg

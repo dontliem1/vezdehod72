@@ -1,5 +1,13 @@
 items:
   - name: Мария Федоренко
     job: Руководитель молодежных проектов Тюменской области, социальный продюсер
+    src: /static/img/team/fedorenko.jpg
+    vk: https://vk.com/fedorenkomary
+    ig: https://www.instagram.com/maryfedorenko_/
+    email: fedorenko.mary72@gmail.com
   - name: Иван Карачев
     job: Программный продюсер молодежных проектов Тюменской области
+    src: /static/img/team/karachev.jpg
+    vk: https://vk.com/karachev_iv
+    ig: https://www.instagram.com/karachev_iv/
+    email: karacheviv1995@gmail.com

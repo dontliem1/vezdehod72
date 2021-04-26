@@ -55,8 +55,8 @@ collections:
             name: logos
             widget: list
             fields:
-              - { label: "Логотип проекта", name: src, widget: image, allow_multiple: false }
               - { label: "Название", name: alt, widget: string }
+              - { label: "Логотип проекта", name: src, widget: image, allow_multiple: false }
           - label: "Цитаты"
             label_singular: "цитата"
             name: quotes
