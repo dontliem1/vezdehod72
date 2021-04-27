@@ -6,6 +6,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
 }
 header.container,
 main.container {
@@ -420,6 +421,7 @@ textarea.form__input {
   text-align: center;
   display: block;
   margin: .4em 0 0;
+  -webkit-appearance: none;
 }
 .form__btn:enabled,
 span.form__btn {
