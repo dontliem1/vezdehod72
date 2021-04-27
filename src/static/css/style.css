@@ -3,6 +3,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
   sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   line-height: 1.4;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+header.container,
+main.container {
+  width: 100%;
+  box-sizing: border-box;
 }
 img {
   vertical-align: middle;
@@ -423,7 +431,7 @@ span.form__btn:hover {
 }
 .stories-web__cta {
   padding: 13em .5em 2.25em;
-  background-color: #FFF4D4;
+  background-color: #1E1919;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -41,9 +41,9 @@ path: home
   <div class="stories-social__heading">
     <p class="section-heading">Выложи пост со своей историей в соцсеть</p>
     <p class="stories-social__heading_links">
-      <a href="" class="stories-social__heading_link stories-social__heading_link--fb" title="Поделиться в Фейсбуке"><span class="visually-hidden">Фейсбук</span></a>
-      <a href="" class="stories-social__heading_link stories-social__heading_link--ig" title="Поделиться в Инстаграме"><span class="visually-hidden">Инстаграм</span></a>
-      <a href="" class="stories-social__heading_link stories-social__heading_link--vk" title="Поделиться во ВКонтакте"><span class="visually-hidden">ВКонтакте</span></a>
+      <a href="" class="stories-social__heading_link stories-social__heading_link--fb" title="Поделиться в Фейсбуке" id="fb"><span class="visually-hidden">Фейсбук</span></a>
+      <a href="" class="stories-social__heading_link stories-social__heading_link--ig" title="Поделиться в Инстаграме" id="ig"><span class="visually-hidden">Инстаграм</span></a>
+      <a href="" class="stories-social__heading_link stories-social__heading_link--vk" title="Поделиться во ВКонтакте" id="vk"><span class="visually-hidden">ВКонтакте</span></a>
     </p>
   </div>
   <p class="stories-social__cta">Отметь людей, сопричастных к этой истории и используй хештег <button class="stories-social__cta_btn" type="button" title="Скопировать" onclick="let str = this.innerText; if (navigator.clipboard) {navigator.clipboard.writeText(str);
@@ -62,7 +62,7 @@ path: home
   <div class="stories-web__wrapper">
     <h2 class="section-subheading">Если у тебя нет социальных сетей</h2>
     <p class="section-heading">Поделись своей историей на сайте</p>
-    <form class="stories-web__form" method="post" data-netlify="true" name="История" enctype="multipart/form-data">
+    <form class="stories-web__form" method="post" data-netlify="true" name="История" enctype="multipart/form-data" action="/success">
       <p class="form__row form__row-full">
         <label class="form__label">Имя и фамилия <input class="form__input" type="text" name="name" placeholder="Иван Иванов" required></label>
       </p>
@@ -98,7 +98,7 @@ path: home
 <section class="stories-subscribe container">
   <div class="stories-subscribe__wrapper">
     <h2 class="section-heading section-heading--small">Хочешь быть в курсе молодежных событий и проектов Тюменской области и включаться в них?</h2>
-    <form class="stories-subscribe__form" onsubmit="if (document.querySelector('.form__checkbox:checked') === null) {alert('Отметь опции, которые тебе интересны.'); return false;}" method="post" data-netlify="true" name="Быть в курсе">
+    <form class="stories-subscribe__form" onsubmit="if (document.querySelector('.form__checkbox:checked') === null) {alert('Отметь опции, которые тебе интересны.'); return false;}" method="post" data-netlify="true" name="Быть в курсе" action="/success">
       <div class="stories-subscribe__form_inputs">
         <p class="form__row">
           <label class="form__label">Фамилия Имя Отчество <input class="form__input" type="text" name="name" placeholder="Иванов Иван Иванович" required></label>
