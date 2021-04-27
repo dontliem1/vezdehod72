@@ -12,9 +12,16 @@ module.exports = function (eleventyConfig) {
 
   // human readable date
   eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
+    return DateTime.fromJSDate(dateObj, { zone: "Asia/Yekaterinburg" }).toFormat(
       "dd LLL yyyy"
     );
+  });
+
+  eleventyConfig.addFilter('markdown', function(value) {
+    let markdown = require('markdown-it')({
+      html: true
+    });
+    return markdown.render(value);
   });
 
   // Syntax Highlighting for Code blocks

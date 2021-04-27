@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Вездеход — 2021
+description: Проект, который объединяет участников молодежных проектов, руководителей и сотрудников молодежных департаментов, команд и сообществ прошлых лет.
 path: home
 ---
 {% if stories.settings.heroSrc %}
@@ -75,7 +76,7 @@ path: home
         <label class="form__label">Контактный телефон <input class="form__input" type="tel" name="tel" placeholder="+7 999 999-99-99" size="18"></label>
       </p>
       <p class="form__row">
-        <label class="form__label">Яркая фотография <input class="visually-hidden" type="file" name="photo" accept="image/*" onchange="this.nextElementSibling.textContent = '✓';"><span class="form__btn">Выбрать</span></label>
+        <label class="form__label">Яркая фотография <input class="visually-hidden form__file" type="file" name="photo" accept="image/*" onchange="this.nextElementSibling.textContent = '✓';"><span class="form__btn">Выбрать</span></label>
       </p>
       <p class="form__row form__row-full">
         <label class="form__label">Ваша история <textarea class="form__input" name="story" placeholder="Не забудь упомянуть людей, с которыми ты участвовал в проектах." rows="4" required></textarea></label>

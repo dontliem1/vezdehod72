@@ -168,6 +168,8 @@ h3 {
 @media (min-width: 67em) {
   .stories-description__wrapper {
     padding-top: 8em;
+    column-gap: 8em;
+    padding-bottom: 8em;
   }
   .stories-description {
     font-size: 150%;
@@ -333,6 +335,9 @@ h3 {
   .stories-social__cta {
     font-size: 115%;
   }
+  .stories-social__cta_btn {
+    margin-left: .4em;
+  }
 }
 @media (min-width: 67em) {
   .stories-social__cta {
@@ -435,7 +440,9 @@ span.form__btn:hover {
   margin-left: auto;
   margin-right: auto;
 }
-
+.form__file:focus + .form__btn {
+  outline: auto;
+}
 @media (min-width: 51em) {
   .form__row--tel {
     flex-basis: auto;
@@ -593,6 +600,9 @@ span.form__btn:hover {
 @media (min-width: 67em) {
   .stories-team__person {
     align-items: center;
+  }
+  .stories-team__person:nth-child(2n-1) {
+    margin-right: 5em;
   }
   .stories-team__person_photo {
     width: 10em;
