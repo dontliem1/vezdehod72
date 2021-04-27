@@ -45,31 +45,40 @@ path: home
       <a href="" class="stories-social__heading_link stories-social__heading_link--vk" title="Поделиться во ВКонтакте"><span class="visually-hidden">ВКонтакте</span></a>
     </p>
   </div>
-  <p class="stories-social__cta">Отметь людей, сопричастных к этой истории и используй хештег <button class="stories-social__cta_btn" type="button" title="Скопировать хештег">{{stories.settings.hashtag}}</button></p>
+  <p class="stories-social__cta">Отметь людей, сопричастных к этой истории и используй хештег <button class="stories-social__cta_btn" type="button" title="Скопировать" onclick="let str = this.innerText; if (navigator.clipboard) {navigator.clipboard.writeText(str);
+		} else {
+			let el = document.createElement('textarea');
+			el.value = str;
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			document.body.removeChild(el);
+		}
+		alert('Скопировано');">{{stories.settings.hashtag}}</button></p>
 </section>
 
 <section class="stories-web">
   <div class="stories-web__wrapper">
     <h2 class="section-subheading">Если у тебя нет социальных сетей</h2>
     <p class="section-heading">Поделись своей историей на сайте</p>
-    <form class="stories-web__form">
+    <form class="stories-web__form" method="post" data-netlify="true" name="История" enctype="multipart/form-data">
       <p class="form__row form__row-full">
-        <label class="form__label">Имя и фамилия <input class="form__input" type="text" name="name" placeholder="Иван Иванов"></label>
+        <label class="form__label">Имя и фамилия <input class="form__input" type="text" name="name" placeholder="Иван Иванов" required></label>
       </p>
       <p class="form__row form__row-full">
-        <label class="form__label">Электронная почта <input class="form__input" type="email" name="email" placeholder="primer@mail.ru"></label>
+        <label class="form__label">Электронная почта <input class="form__input" type="email" name="email" placeholder="primer@mail.ru" required></label>
       </p>
       <p class="form__row form__row-full">
-        <label class="form__label">Ссылка на социальную сеть <input class="form__input" type="url" name="social" placeholder="https://instagram.com/primer"></label>
+        <label class="form__label">Ссылка на социальную сеть <input class="form__input" type="url" name="social" placeholder="https://instagram.com/primer" required></label>
       </p>
       <p class="form__row form__row--tel">
         <label class="form__label">Контактный телефон <input class="form__input" type="tel" name="tel" placeholder="+7 999 999-99-99" size="18"></label>
       </p>
       <p class="form__row">
-        <label class="form__label">Яркая фотография <input class="visually-hidden" type="file" name="photo" accept="image/*"><span class="form__btn">Выбрать</span></label>
+        <label class="form__label">Яркая фотография <input class="visually-hidden" type="file" name="photo" accept="image/*" onchange="this.nextElementSibling.textContent = '✓';"><span class="form__btn">Выбрать</span></label>
       </p>
       <p class="form__row form__row-full">
-        <label class="form__label">Ваша история <textarea class="form__input" name="story" placeholder="Не забудь упомянуть людей, с которыми ты участвовал в проектах." rows="4"></textarea></label>
+        <label class="form__label">Ваша история <textarea class="form__input" name="story" placeholder="Не забудь упомянуть людей, с которыми ты участвовал в проектах." rows="4" required></textarea></label>
       </p>
       <input class="form__btn" type="submit" value="Поделиться историей">
     </form>
@@ -88,19 +97,19 @@ path: home
 <section class="stories-subscribe container">
   <div class="stories-subscribe__wrapper">
     <h2 class="section-heading section-heading--small">Хочешь быть в курсе молодежных событий и проектов Тюменской области и включаться в них?</h2>
-    <form class="stories-subscribe__form" onsubmit="if (document.querySelector('.form__checkbox:checked') === null) {alert('Отметь опции, которые тебе интересны.'); return false;}">
+    <form class="stories-subscribe__form" onsubmit="if (document.querySelector('.form__checkbox:checked') === null) {alert('Отметь опции, которые тебе интересны.'); return false;}" method="post" data-netlify="true" name="Быть в курсе">
       <div class="stories-subscribe__form_inputs">
         <p class="form__row">
-          <label class="form__label">Фамилия Имя Отчество <input class="form__input" type="text" name="name" placeholder="Иванов Иван Иванович"></label>
+          <label class="form__label">Фамилия Имя Отчество <input class="form__input" type="text" name="name" placeholder="Иванов Иван Иванович" required></label>
         </p>
         <p class="form__row">
           <label class="form__label">Контактный телефон <input class="form__input" type="tel" name="tel" placeholder="+7 999 999-99-99" size="18"></label>
         </p>
         <p class="form__row">
-          <label class="form__label">Электронная почта <input class="form__input" type="email" name="email" placeholder="primer@mail.ru"></label>
+          <label class="form__label">Электронная почта <input class="form__input" type="email" name="email" placeholder="primer@mail.ru" required></label>
         </p>
         <p class="form__row">
-          <label class="form__label">Ссылка на социальную сеть <input class="form__input" type="url" name="social" placeholder="https://instagram.com/primer"></label>
+          <label class="form__label">Ссылка на социальную сеть <input class="form__input" type="url" name="social" placeholder="https://instagram.com/primer" required></label>
         </p>
       </div>
       <div class="stories-subscribe__form_checkboxes">
