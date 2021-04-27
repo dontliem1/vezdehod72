@@ -1,6 +1,10 @@
 <footer class="footer">
     <div class="container">
         <a href="" class="link--img"><img src="/static/img/logos/department.png" alt="Департамент по общественным связям, коммуникациям и молодёжной политике Тюменской области" width="175" height="85"></a>
-        <a href="/policy" class="link--solid">Политика конфиденциальности</a>
+        {% if path == 'policy' %}
+            <a href="../" class="link--solid">Главная страница</a>
+        {% else %}
+            <a href="/policy" class="link--solid">Политика конфиденциальности</a>
+        {% endif %}
     </div>
 </footer>

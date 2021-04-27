@@ -7,31 +7,13 @@ backend:
   # repo: surjithctly/neat-starter
 media_folder: "src/static/img"
 public_folder: "/static/img"
-site_url: https://clever-brattain-b978d3.netlify.app
+site_url: https://вездеход72.рф/
 locale: 'ru'
 
 # Please run "npx netlify-cms-proxy-server" for local backend
 local_backend: true
 # publish_mode: editorial_workflow
 collections:
-  - label: "Blog"
-    name: "blog"
-    folder: "src/posts"
-    create: true
-    editor:
-      preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - widget: select
-        label: "tags"
-        name: "tags"
-        multiple: true
-        create: true
-        options: ["Tags", "created", "from", "config.yml"]
   - label: "Вездеход"
     name: "stories"
     editor:
@@ -97,3 +79,8 @@ collections:
               - { label: "Ссылка на ВКонтакте", name: vk, widget: string, required: false }
               - { label: "Ссылка на Инстаграм", name: ig, widget: string, required: false }
               - { label: "Электронная почта", name: email, widget: string, required: false }
+      - label: "Политика конфиденциальности"
+        name: "policy"
+        file: "src/_data/policy.yaml"
+        fields:
+          - { label: "Политика конфиденциальности", name: body, widget: markdown, editor_components: [] }
