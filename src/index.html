@@ -15,11 +15,16 @@ path: home
       <p>{{item.text}}</p>
     {% endfor %}
   </div>
-  <ul class="stories-logos">
-    {% for logo in stories.settings.logos %}
-    <li class="stories-logos__item"><img class="stories-logos__img" width="320" src="{{logo.src}}" alt="{{logo.alt}}"></li>
-    {% endfor %}
-  </ul>
+  <div class="stories-logos__wrapper">
+    {% if stories.settings.logos %}
+      <h2 class="section-subheading">Молодёжные команды Тюменской области</h2>
+      <ul class="stories-logos">
+        {% for logo in stories.settings.logos %}
+        <li class="stories-logos__item"><img class="stories-logos__img" width="320" src="{{logo.src}}" alt="{{logo.alt}}"></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
   {% for item in stories.settings.quotes %}
     <div class="stories-quote">
       <blockquote class="stories-quote__text">{{item.quote}}</blockquote>
