@@ -383,7 +383,7 @@ h3 {
 }
 .stories-web__wrapper {
   background: linear-gradient(to top, rgb(255, 255, 240), rgba(255, 255, 255, 0)), #FFF4D4;
-  padding: 1.5em 1.5em 2em;
+  padding: 2em 1.5em 2em;
   flex-basis: 18em;
   flex-grow: 1;
   max-width: 34em;
@@ -472,7 +472,7 @@ span.form__btn:hover {
 
 @media (min-width: 67em) {
   .stories-web__wrapper {
-    padding: 1.5em 6em 3em 3em;
+    padding: 2.5em 6em 3em 3em;
     max-width: 26em;
   }
   .stories-web__cta {
