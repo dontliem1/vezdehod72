@@ -51,6 +51,7 @@ collections:
           - { label: "Хештег проекта", name: hashtag, widget: string }
           - { label: "Текст рядом с формой истории", name: formText, widget: text, required: false }
           - { label: "Картинка рядом с формой истории", name: formBg, widget: image, allow_multiple: false, required: false }
+          - { label: "Электронная почта для заявок с формы", name: email, widget: string }
       - label: "Направления историй"
         name: "themes"
         file: "src/_data/stories/themes.yaml"

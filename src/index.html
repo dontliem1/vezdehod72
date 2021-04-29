@@ -67,7 +67,11 @@ path: home
   <div class="stories-web__wrapper">
     <h2 class="section-subheading">Если у тебя нет социальных сетей</h2>
     <p class="section-heading">Поделись своей историей на сайте</p>
-    <form class="stories-web__form" method="post" data-netlify="true" name="История" enctype="multipart/form-data" action="/success">
+    <form class="stories-web__form" method="post" name="История" enctype="multipart/form-data" action="https://folga.digital/api/mail.php">
+      <input type="hidden" name="formName" value="Новая история">
+      <input type="hidden" name="formEmail" value="{{stories.settings.email}}">
+      <input type="hidden" name="formSuccess" value="https://xn--72-dlciaebo9d9c.xn--p1ai/success/">
+      <input type="hidden" name="formBot" value="">
       <p class="form__row form__row-full">
         <label class="form__label">Имя и фамилия <input class="form__input" type="text" name="name" placeholder="Иван Иванов" required></label>
       </p>
@@ -90,9 +94,9 @@ path: home
     </form>
   </div>
   <div class="stories-web__cta"
-       {% if stories.settings.formBg %}
-       style="background-image: url('{{stories.settings.formBg}}')"
-       {% endif %}
+    {% if stories.settings.formBg %}
+    style="background-image: url('{{stories.settings.formBg}}')"
+    {% endif %}
   >
     {% if stories.settings.formText %}
       <div class="stories-web__cta_text">{{stories.settings.formText}}</div>
@@ -103,7 +107,11 @@ path: home
 <section class="stories-subscribe container">
   <div class="stories-subscribe__wrapper">
     <h2 class="section-heading section-heading--small">Хочешь быть в курсе молодежных событий и проектов Тюменской области и включаться в них?</h2>
-    <form class="stories-subscribe__form" method="post" data-netlify="true" name="Быть в курсе" action="/success">
+    <form class="stories-subscribe__form" method="post" name="Быть в курсе" action="https://folga.digital/api/mail.php">
+      <input type="hidden" name="formName" value="Хотят быть в курсе">
+      <input type="hidden" name="formEmail" value="{{stories.settings.email}}">
+      <input type="hidden" name="formSuccess" value="https://xn--72-dlciaebo9d9c.xn--p1ai/success/">
+      <input type="hidden" name="formBot" value="">
       <div class="stories-subscribe__form_inputs">
         <p class="form__row">
           <label class="form__label">Фамилия Имя Отчество <input class="form__input" type="text" name="name" placeholder="Иванов Иван Иванович" required></label>
@@ -122,13 +130,13 @@ path: home
         <fieldset>
           <legend class="form__legend">Отметь опции, которые тебе интересны:</legend>
           <p class="form__row">
-            <label class="form__label--checkbox"><input class="visually-hidden form__checkbox" type="checkbox" name="expert"><span></span> <span class="form__checkbox_text"><b>Эксперт</b> принимай участие в проектах как спикер, член жюри</span></label>
+            <label class="form__label--checkbox"><input class="visually-hidden form__checkbox" type="checkbox" name="options[]" value="expert"><span></span> <span class="form__checkbox_text"><b>Эксперт</b> принимай участие в проектах как спикер, член жюри</span></label>
           </p>
           <p class="form__row">
-            <label class="form__label--checkbox"><input class="visually-hidden form__checkbox" type="checkbox" name="mentor"><span></span> <span class="form__checkbox_text"><b>Ментор</b> включайся в качестве карьерного или проектного наставника</span></label>
+            <label class="form__label--checkbox"><input class="visually-hidden form__checkbox" type="checkbox" name="options[]" value="mentor"><span></span> <span class="form__checkbox_text"><b>Ментор</b> включайся в качестве карьерного или проектного наставника</span></label>
           </p>
           <p class="form__row">
-            <label class="form__label--checkbox"><input class="visually-hidden form__checkbox" type="checkbox" name="sponsor"><span></span> <span class="form__checkbox_text"><b>Спонсор</b> делай финансовые вложения на развитие молодежных инициатив / лидеров</span></label>
+            <label class="form__label--checkbox"><input class="visually-hidden form__checkbox" type="checkbox" name="options[]" value="sponsor"><span></span> <span class="form__checkbox_text"><b>Спонсор</b> делай финансовые вложения на развитие молодежных инициатив / лидеров</span></label>
           </p>
         </fieldset>
         <input class="form__btn" type="submit" value="Отправить" onclick="if (document.querySelector('.form__checkbox:checked') === null) {alert('Отметь опции, которые тебе интересны.'); return false;}">
