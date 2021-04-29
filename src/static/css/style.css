@@ -450,7 +450,7 @@ span.form__btn:hover {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  flex-basis: 18em;
+  flex-basis: 16em;
   flex-grow: 1;
   display: flex;
   align-items: flex-end;
@@ -459,7 +459,7 @@ span.form__btn:hover {
 .stories-web__cta_text {
   padding: 1.25em 1em 1.75em;
   background-color: #fff;
-  max-width: 18em;
+  max-width: 14em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -602,7 +602,7 @@ span.form__btn:hover {
   font-size: 1.25em;
 }
 .stories-team__person_job {
-  margin: .5em 0;
+  margin: .25em 0 .5em;
 }
 .stories-team__person_link {
   display: inline-block;
