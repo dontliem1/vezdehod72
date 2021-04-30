@@ -1,5 +1,6 @@
 title: Вездеход — 2021
 heroSrc: /static/img/hero.jpg
+og: /static/favicon/og.jpg
 logos:
   - alt: Моя территория
     src: /static/img/logos/mt.png
