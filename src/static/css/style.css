@@ -165,15 +165,15 @@ h3 {
 }
 .stories-description__wrapper {
   padding-top: 3em;
-  padding-bottom: 4em;
+  padding-bottom: 2em;
 }
 @media (min-width: 48em) {
   .stories-description__wrapper {
     padding-top: 6em;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3.5em;
+    display: flex;
+    column-gap: 3.5em;
     align-items: start;
+    padding-bottom: 4em;
   }
   .stories-description {
     font-size: 125%;
@@ -183,7 +183,6 @@ h3 {
   .stories-description__wrapper {
     padding-top: 8em;
     column-gap: 5em;
-    padding-bottom: 8em;
   }
 }
 
@@ -211,6 +210,8 @@ h3 {
 @media (min-width: 48em) {
   .stories-logos__wrapper {
     padding-top: 0;
+    flex-basis: 18em;
+    flex-shrink: 0;
   }
   .stories-logos {
     gap: 2em;
@@ -219,6 +220,7 @@ h3 {
 @media (min-width: 67em) {
   .stories-logos__wrapper {
     text-align: center;
+    flex-basis: 29em;
   }
   .stories-logos {
     grid-template-columns: 1fr 1fr 1fr;
@@ -229,6 +231,10 @@ h3 {
 }
 
 /* Stories quotes */
+.stories-quotes {
+  margin-bottom: 4em;
+  position: relative;
+}
 .stories-quote {
   position: relative;
   margin-top: 3em;
@@ -268,6 +274,78 @@ h3 {
 .stories-quote__author_job {
   font-size: 85%;
   margin: .5em 0 0;
+  max-width: 30em;
+}
+.stories-quotes--carousel .stories-quotes__list:not(.stories-quotes--only-active) .stories-quote ~ .stories-quote,
+.stories-quotes--only-active .stories-quote:not(.stories-quote--active) {
+  display: none;
+}
+.stories-quote--active {
+  animation: appear .5s ease-in forwards;
+}
+.stories-quote--fading {
+  animation: fade .3s ease-in forwards;
+}
+@keyframes appear {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+.stories-quotes--carousel .stories-quote {
+  padding-right: 2em;
+}
+.stories-quotes--carousel .stories-quotes__btn {
+  display: inline-block;
+}
+.stories-quotes__btn {
+  background: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 5rem;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 500%;
+  color: #F6D857;
+  transition: color .2s;
+}
+.stories-quotes__btn:hover {
+  color: #F6E867;
+}
+@media (min-width: 48em) {
+  .stories-quotes__list {
+    display: flex;
+    column-gap: 3.5em;
+  }
+  .stories-quote {
+    margin-top: 0;
+  }
+  .stories-quotes--carousel .stories-quote {
+    padding-right: 30%;
+  }
+  .stories-quotes__btn {
+    width: 38%;
+    font-size: 1000%;
+  }
 }
 
 /* Stories themes */
@@ -571,6 +649,38 @@ span.form__btn:hover {
   .stories-subscribe__form_inputs {
     margin-right: 5em;
     flex-basis: 20em;
+  }
+}
+
+/* Stories VK */
+.stories-vk {
+  margin-top: 2em;
+  font-size: 1.5em;
+  background-color: #F6D857;
+  margin-bottom: 2.5em;
+}
+.stories-vk__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.stories-vk__text {
+  flex-basis: 10em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+#vk_groups {
+  box-shadow: 10px 10px 30px 3px rgba(39, 92, 141, 0.2);
+  margin-top: -1em;
+  margin-bottom: -1em;
+}
+@media (min-width: 48em) {
+  .stories-vk {
+    font-size: 2em;
+  }
+  .stories-vk__text {
+    margin: 0;
   }
 }
 

@@ -5,7 +5,7 @@ description: Проект, который объединяет участник�
 path: home
 ---
 {% if stories.settings.heroSrc %}
-  <img class="stories-hero" src="{{stories.settings.heroSrc}}" alt="Молодежная политика Тюменской области" width="320">
+  <img class="stories-hero" src="{{stories.settings.heroSrc}}" alt="Молодежная политика Тюменской области" width="320" height="180">
 {% endif %}
 <h1 class="stories-title container">{{stories.settings.title}}</h1>
 
@@ -25,21 +25,48 @@ path: home
       </ul>
     {% endif %}
   </div>
-  {% for item in stories.settings.quotes %}
-    <div class="stories-quote">
-      <blockquote class="stories-quote__text">{{item.quote}}</blockquote>
-      <div class="stories-quote__author">
-        {% if item.authorSrc %}
-          <img class="stories-quote__author_img" src="{{item.authorSrc}}" alt="" width="85" height="85">
-        {% endif %}
-        <div>
-          <b class="stories-quote__author_name">{{item.author}}</b>
-          <p class="stories-quote__author_job">{{item.authorJob}}</p>
+</div>
+<div class="stories-quotes{% if stories.settings.quotes | length > 2 %} stories-quotes--carousel{% endif %}">
+  <div class="stories-quotes__list container">
+    {% for item in stories.settings.quotes %}
+      <div class="stories-quote">
+        <blockquote class="stories-quote__text">{{item.quote}}</blockquote>
+        <div class="stories-quote__author">
+          {% if item.authorSrc %}
+            <img class="stories-quote__author_img" src="{{item.authorSrc}}" alt="" width="85" height="85">
+          {% endif %}
+          <div>
+            <b class="stories-quote__author_name">{{item.author}}</b>
+            <p class="stories-quote__author_job">{{item.authorJob}}</p>
+          </div>
         </div>
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
+  <button class="stories-quotes__btn" type="button" hidden>→</button>
 </div>
+{% if stories.settings.quotes | length > 2 %}
+  <script>
+    const nextQuoteBtn = document.querySelector('.stories-quotes__btn');
+    const quotesList = document.querySelector('.stories-quotes__list');
+    const quotes = document.getElementsByClassName('stories-quote');
+    quotes[0].classList.add('stories-quote--active');
+    nextQuoteBtn.addEventListener('click', function() {
+      quotesList.classList.add('stories-quotes--only-active');
+      let activeQuote = quotesList.querySelector('.stories-quote--active');
+      activeQuote.classList.add('stories-quote--fading');
+      setTimeout(function () {
+        if (activeQuote === quotes[quotes.length - 1]) {
+          quotes[0].classList.add('stories-quote--active');
+        } else {
+          activeQuote.nextElementSibling.classList.add('stories-quote--active');
+        }
+        activeQuote.classList.remove('stories-quote--active');
+        activeQuote.classList.remove('stories-quote--fading');
+      }, 300)
+    })
+  </script>
+{% endif %}
 {% include "./_includes/partials/themes.html" %}
 <section class="container stories-social">
   <h2 class="section-subheading">Если у тебя есть социальные сети</h2>
@@ -66,7 +93,7 @@ path: home
 <section class="stories-web">
   <div class="stories-web__wrapper">
     <h2 class="section-subheading">Если у тебя нет социальных сетей</h2>
-    <p class="section-heading">Поделись своей историей на сайте</p>
+    <p class="section-heading">{{stories.settings.formTitle}}</p>
     <form class="stories-web__form" method="post" name="История" enctype="multipart/form-data" action="https://folga.digital/api/mail.php">
       <input type="hidden" name="formName" value="Новая история">
       <input type="hidden" name="formEmail" value="{{stories.settings.email}}">
@@ -77,9 +104,6 @@ path: home
       </p>
       <p class="form__row form__row-full">
         <label class="form__label">Электронная почта <input class="form__input" type="email" name="email" placeholder="primer@mail.ru" required></label>
-      </p>
-      <p class="form__row form__row-full">
-        <label class="form__label">Ссылка на социальную сеть <input class="form__input" type="url" name="social" placeholder="https://instagram.com/primer" required></label>
       </p>
       <p class="form__row form__row--tel">
         <label class="form__label">Контактный телефон <input class="form__input" type="tel" name="tel" placeholder="+7 999 999-99-99" size="18"></label>
@@ -103,6 +127,17 @@ path: home
     {% endif %}
   </div>
 </section>
+
+<div class="stories-vk">
+  <script src="https://vk.com/js/api/openapi.js?169"></script>
+  <div class="container stories-vk__wrapper">
+    <p class="stories-vk__text">Следи за новостями проекта в группе ВКонтакте</p>
+    <div id="vk_groups"></div>
+  </div>
+  <script>
+    VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1, color1: 'FFF', color2: '333', color3: '000', width: '260'}, 118919001);
+  </script>
+</div>
 
 <section class="stories-subscribe container">
   <div class="stories-subscribe__wrapper">
@@ -188,3 +223,4 @@ path: home
     });
   }
 </script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
