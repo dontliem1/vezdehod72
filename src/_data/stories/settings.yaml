@@ -9,7 +9,7 @@ logos:
   - alt: Моя территория
     src: /static/img/logos/mt.png
   - alt: Контора пароходства
-    src: /static/img/logos/kontora.jpg
+    src: /static/img/kp-logo-1-black.png
   - alt: Космос
     src: /static/img/logos/cosmos.png
   - alt: Медиацентр
@@ -38,7 +38,7 @@ quotes:
     authorJob: Президент группы компаний «Автоград», депутат Тюменской областной
       Думы шестого созыва
 hashtag: "#вездеход72"
-formText: Напиши историю и стань примером для молодежи Тюменской области.
 formTitle: Отправь свою историю через форму на сайте
+formText: Напиши историю и стань примером для молодежи Тюменской области.
 formBg: /static/img/form.jpg
 email: karacheviv1995@gmail.com
