@@ -87,16 +87,7 @@ path: home
         <li><b>Спонсор</b> — делать финансовые вложения в развитие молодежных инициатив и лидеров.</li>
       </ul>
     </li>
-    <li>Добавь хештег <button class="stories-social__cta_btn" type="button" title="Скопировать" onclick="let str = this.innerText; if (navigator.clipboard) {navigator.clipboard.writeText(str);
-		} else {
-			let el = document.createElement('textarea');
-			el.value = str;
-			document.body.appendChild(el);
-			el.select();
-			document.execCommand('copy');
-			document.body.removeChild(el);
-		}
-		alert('Скопировано');">{{stories.settings.hashtag}}</button>
+    <li>Добавь хештег <a class="stories-social__cta_btn" target="_blank" title="Перейти на ВКонтакте" href="https://vk.com/vezdehod2021">{{stories.settings.hashtag}}</a>
     </li>
   </ol>
 </section>
