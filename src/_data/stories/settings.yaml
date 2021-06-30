@@ -38,7 +38,20 @@ quotes:
     authorJob: Президент группы компаний «Автоград», депутат Тюменской областной
       Думы шестого созыва
 hashtag: "#вездеход72"
+formImgs:
+  - alt: Артем Андросов
+    src: /static/img/form/quote1.jpg
+  - alt: Максим Бойко
+    src: /static/img/form/quote2.jpg
+  - alt: Маргарита Посадских
+    src: /static/img/form/quote3.jpg
+  - alt: Александра Раздорских
+    src: /static/img/form/quote4.jpg
+  - alt: Илья Титов
+    src: /static/img/form/quote5.jpg
+  - alt: Федор Маслов
+    src: /static/img/form/quote6.jpg
 formTitle: Отправь свою историю через форму на сайте
-formText: Напиши историю и получи приглашение на закрытую вечеринку!
+formText: И получи приглашение на закрытую вечеринку!
 formBg: /static/img/form.jpg
 email: karacheviv1995@gmail.com

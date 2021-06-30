@@ -50,8 +50,15 @@ collections:
               - { label: "Цитата", name: quote, widget: text, hint: "Без кавычек.", required: false }
           - { label: "Хештег проекта", name: hashtag, widget: string }
           - { label: "Заголовок формы с историей", name: formTitle, widget: string, required: false }
-          - { label: "Текст рядом с формой истории", name: formText, widget: text, required: false }
-          - { label: "Картинка рядом с формой истории", name: formBg, widget: image, allow_multiple: false, required: false }
+          - { label: "Текст под заголовком формы с историей", name: formText, widget: text, required: false }
+          - label: "Картинки под форму"
+            label_singular: "картинка"
+            name: formImgs
+            widget: list
+            hint: 1000x500 пикселей
+            fields:
+              - { label: "Подпись для незрячих людей", name: alt, widget: string }
+              - { label: "Картинка", name: src, widget: image, allow_multiple: false }
           - { label: "Электронная почта для заявок с формы", name: email, widget: string }
       - label: "Направления историй"
         name: "themes"

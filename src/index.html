@@ -45,6 +45,12 @@ path: home
   </div>
   <button class="stories-quotes__btn" type="button" hidden>→</button>
 </div>
+<div class="container stories-video">
+  <h2 class="section-heading section-heading--small">Посмотри как изменилась молодежная политика за последние 5 лет</h2>
+  <div class="iframe__wrapper">
+    <iframe class="iframe--video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/aV7b-g8jO6I" title="Ролик о молодежной политике." allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
 {% if stories.settings.quotes | length > 2 %}
   <script>
     const nextQuoteBtn = document.querySelector('.stories-quotes__btn');
@@ -93,9 +99,10 @@ path: home
 </section>
 
 <section class="stories-web">
-  <div class="stories-web__wrapper">
+  <div class="container">
     <h2 class="section-subheading">Если у тебя нет социальных сетей</h2>
     <p class="section-heading">{{stories.settings.formTitle}}</p>
+    <p class="section-heading section-heading--small">{{stories.settings.formText}}</p>
     <form class="stories-web__form" method="post" name="История" enctype="multipart/form-data" action="https://folga.digital/api/mail.php">
       <input type="hidden" name="formName" value="Новая история">
       <input type="hidden" name="formEmail" value="{{stories.settings.email}}">
@@ -131,15 +138,11 @@ path: home
       </fieldset>
       <input class="form__btn" type="submit" value="Поделиться историей">
     </form>
-  </div>
-  <div class="stories-web__cta"
-    {% if stories.settings.formBg %}
-    style="background-image: url('{{stories.settings.formBg}}')"
-    {% endif %}
-  >
-    {% if stories.settings.formText %}
-      <div class="stories-web__cta_text">{{stories.settings.formText}}</div>
-    {% endif %}
+    <div class="stories-web__gallery">
+      {% for img in stories.settings.formImgs %}
+      <img class="stories-web__img" width="320" height="160" loading="lazy" src="{{img.src}}" alt="{{img.alt}}">
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -152,6 +155,11 @@ path: home
   <script>
     VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1, color1: 'FFF', color2: '333', color3: '000', width: '260'}, 118919001);
   </script>
+</div>
+<div class="container">
+  <div class="iframe__wrapper">
+    <iframe class="iframe--video" width="560" height="315" src="https://www.youtube.com/embed/YinBJbSTxVQ" title="Промо-ролик Вездеход 2021" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
 </div>
 
 {% if stories.team.items %}
@@ -183,6 +191,7 @@ path: home
 {% endif %}
 
 <script>
+  //Маска для телефона
   const telInputs = document.querySelectorAll('input[type=tel]');
   for (let i = 0; i < telInputs.length; i++) {
     telInputs[i].addEventListener('input', function(e) {
@@ -197,4 +206,24 @@ path: home
     });
   }
 </script>
+<script>
+  // Автолистание фотографий
+  const slideWrappers = document.getElementsByClassName('stories-web__gallery');
+  function startSlideshow(slidesWrapper) {
+    let lastSlide = slidesWrapper.children[slidesWrapper.children.length - 1];
+    lastSlide.classList.add('js_slideshow--active');
+    setInterval(function () {
+      let activeHeroImg = slidesWrapper.querySelector('.js_slideshow--active');
+      let nextActiveHeroImg = activeHeroImg.previousElementSibling ?? lastSlide;
+      nextActiveHeroImg.hidden = false;
+      nextActiveHeroImg.classList.add('js_slideshow--active');
+      activeHeroImg.classList.remove('js_slideshow--active');
+      setTimeout(() => activeHeroImg.hidden = true, 1000);
+    }, 8000);
+  }
+  for (let i = 0; i < slideWrappers.length; i++) {
+    startSlideshow(slideWrappers[i]);
+  }
+</script>
+
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
