@@ -54,4 +54,6 @@ formImgs:
     src: /static/img/form/quote5.jpg
   - alt: Федор Маслов
     src: /static/img/form/quote6.jpg
+  - alt: Елена Рукавишникова
+    src: /static/img/form/quote7.jpg
 email: karacheviv1995@gmail.com
