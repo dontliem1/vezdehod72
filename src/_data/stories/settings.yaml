@@ -51,6 +51,8 @@ formImgs:
     src: /static/img/form/quote5.jpg
   - alt: Федор Маслов
     src: /static/img/form/quote6.jpg
+  - alt: Елена Рукавишникова
+    src: /static/img/form/quote7.jpg
 formTitle: Отправь свою историю через форму на сайте
 formText: И получи приглашение на закрытую вечеринку!
 formBg: /static/img/form.jpg
